@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Resume</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            makeEditable("editable");
+        });
+
+        function makeEditable(className) {
+            const elements = document.getElementsByClassName(className);
+            for (let el of elements) {
+                el.addEventListener("dblclick", function() {
+                    this.setAttribute("contenteditable", true);
+                    this.focus();
+                });
+
+                el.addEventListener("blur", function() {
+                    this.setAttribute("contenteditable", false);
+                });
+
+                el.addEventListener("keypress", function(e) {
+                    if (e.key === "Enter") {
+                        this.blur();
+                    }
+                });
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="about">
+        <h1 class="editable">Your Name</h1>
+        <p class="editable">Short introduction about yourself. Highlight your professional interests and what you're looking for.</p>
+    </section>
+    <section id="resume">
+        <h2>Resume</h2>
+        <h3>Education</h3>
+        <p class="editable">University Name, Degree, Graduation Year</p>
+        <h3>Experience</h3>
+        <p class="editable">Job Title, Company, Years</p>
+        <p class="editable">Short description of your responsibilities and achievements.</p>
+        <h3>Skills</h3>
+        <ul>
+            <li class="editable">Skill 1</li>
+            <li class="editable">Skill 2</li>
+            <li class="editable">Skill 3</li>
+        </ul>
+    </section>
+    <section id="contact">
+        <h2>Contact</h2>
+        <p class="editable">Email: your.email@example.com</p>
+        <p class="editable">LinkedIn: <a href="your-linkedin-profile-url" class="editable">Your LinkedIn</a></p>
+    </section>
+</body>
+</html>
